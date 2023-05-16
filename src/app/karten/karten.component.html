@@ -1,4 +1,3 @@
-<body>
 <div class="container">
 
 <div class="row">
@@ -81,4 +80,13 @@
 
 
 </div>
-</body>
+
+<div *ngIf="windowWidth | async as width">
+  {{width}}
+</div>
+
+<div *ngIf="windowWidth | async as width">
+  <ng-container *ngIf="width < 480">
+    isMobile
+  </ng-container>
+</div>
