@@ -1,0 +1,13 @@
+:root {
+  --blue900: #00152C;
+  --blue800: #002B59;
+  --blue700: #004085;
+  --blue600: #0B57A9;
+  --blue500: #166CC9;
+  --white: #FFFFFF;
+  --white30: rgba(255, 255, 255, 0.3);
+  --gray100: #F7F7F8;
+  --gray200: #EFF0F0;
+  --gray300: #E7E7E9;
+  --gray800: #171717;
+}

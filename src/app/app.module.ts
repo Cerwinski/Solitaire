@@ -11,12 +11,12 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import { DeckManagementService } from './shared/services/deck-management.service';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KartenComponent
-
   ],
   imports: [
     BrowserModule,
@@ -25,7 +25,8 @@ import { DeckManagementService } from './shared/services/deck-management.service
     MatIconModule,
     FlexLayoutModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MenuBarComponent
   ],
   providers: [DeckManagementService],
   bootstrap: [AppComponent]
