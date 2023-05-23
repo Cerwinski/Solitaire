@@ -10,6 +10,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
+import { DeckManagementService } from './shared/services/deck-management.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatInputModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [DeckManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,57 +1,60 @@
+<div class="card" *ngIf="!!card">
+  <img src="assets/{{card}}.jpg" alt="Image {{card}}">
+</div>
 
 <div class="container">
 
-<div class="row">
-
-  <div class="col">
-    <img src="/assets/card-7031432__340.jpg" alt="Image 1">
-  </div>
-  <div class="col">
-
-  </div>
-  <div class="col">
-
-  </div>
-  <div class="col">
-
-  </div>
-  <div class="col">
-
-  </div>
-  <div class="col">
-
-  </div>
-  <div class="col">
-
-  </div>
-
-
-
-</div>
   <div class="row">
 
     <div class="col">
-      <img src="assets/a.jpg" alt="Image 1">
+      <img *ngIf="deckService.cDeck()"
+           (click)="card = deckService.drawCard()"
+           src="/assets/cardback.jpg" alt="Image 1">
     </div>
     <div class="col">
-      <img src="assets/b.jpg" alt="Image 1">
+
     </div>
     <div class="col">
-      <img src="assets/a.jpg" alt="Image 1">
+
     </div>
     <div class="col">
-      <img src="assets/b.jpg" alt="Image 1">
+
     </div>
     <div class="col">
-      <img src="assets/HB.png" alt="Image 1">
+
     </div>
     <div class="col">
-      <img src="assets/b.jpg" alt="Image 1">
+
     </div>
     <div class="col">
-      <img src="assets/HB.png" alt="Image 1">
+
     </div>
 
+
+  </div>
+  <div class="row">
+
+    <div class="col">
+      <img src="assets/1.jpg" (click)="card = undefined" alt="Image 1">
+    </div>
+    <div class="col">
+      <img src="assets/2.jpg" (click)="card = undefined" alt="Image 1">
+    </div>
+    <div class="col">
+      <img src="assets/1.jpg" (click)="card = undefined" alt="Image 1">
+    </div>
+    <div class="col">
+      <img src="assets/2.jpg" (click)="card = undefined" alt="Image 1">
+    </div>
+    <div class="col">
+      <img src="assets/3.png" (click)="card = undefined" alt="Image 1">
+    </div>
+    <div class="col">
+      <img src="assets/2.jpg" (click)="card = undefined" alt="Image 1">
+    </div>
+    <div class="col">
+      <img src="assets/3.png" (click)="card = undefined" alt="Image 1">
+    </div>
 
 
   </div>
@@ -61,27 +64,27 @@
 <div *ngIf="windowWidth | async as width">
   <div class="button-container" *ngIf="width > 500">
 
-<button mat-button style="color: white">New Game
-  <mat-icon>add</mat-icon>
-</button>
+    <button mat-button style="color: white">New Game
+      <mat-icon>add</mat-icon>
+    </button>
 
-<button mat-button style="color: white">Restart
-  <mat-icon>refresh</mat-icon>
-</button>
-<button class="main_button1" mat-button style="color: black">Pause
-  <mat-icon>pause</mat-icon>
-</button>
-<button class ="main_button2" mat-button style="color: black">Undo
-  <mat-icon>undo</mat-icon>
-</button>
-<button mat-button style="color: white">Options
-  <mat-icon>settings</mat-icon>
-</button>
-<button mat-button style="color: white">Help
-  <mat-icon>help</mat-icon>
-</button>
+    <button mat-button style="color: white">Restart
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button class="main_button1" mat-button style="color: black">Pause
+      <mat-icon>pause</mat-icon>
+    </button>
+    <button class="main_button2" mat-button style="color: black">Undo
+      <mat-icon>undo</mat-icon>
+    </button>
+    <button mat-button style="color: white">Options
+      <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-button style="color: white">Help
+      <mat-icon>help</mat-icon>
+    </button>
 
-</div>
+  </div>
 </div>
 
 <div *ngIf="windowWidth | async as width">
@@ -102,7 +105,7 @@
       <button class="main_button1" mat-button style="color: black">Pause
         <mat-icon>pause</mat-icon>
       </button>
-      <button class ="main_button2" mat-button style="color: black">Undo
+      <button class="main_button2" mat-button style="color: black">Undo
         <mat-icon>undo</mat-icon>
       </button>
       <button mat-button style="color: black">Options
