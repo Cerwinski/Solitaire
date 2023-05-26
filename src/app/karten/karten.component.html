@@ -61,7 +61,7 @@
 </div>
 
 
-<div *ngIf="windowWidth | async as width">
+<div *ngIf="windowWidth$ | async as width">
   <div class="button-container" *ngIf="width > 500">
 
     <button mat-button style="color: white">New Game
@@ -87,11 +87,11 @@
   </div>
 </div>
 
-<div *ngIf="windowWidth | async as width">
+<div *ngIf="windowWidth$ | async as width">
   {{width}}
 </div>
 
-<div *ngIf="windowWidth | async as width">
+<div *ngIf="windowWidth$ | async as width">
   <mat-form-field appearance="fill" *ngIf="width == 500">
     <mat-label>Select an option</mat-label>
     <mat-select disableRipple>

@@ -1,5 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
-import { fromEvent, map } from 'rxjs';
+import { fromEvent, map, tap } from 'rxjs';
 import { TabComponent } from './tab/tab.component';
 import { NgIf, NgFor, NgOptimizedImage, AsyncPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -19,7 +19,9 @@ export class MenuBarComponent {
   hoveredTabIndex = -1;
 
   private windowWidth$ = fromEvent(window, 'resize').pipe(
-    map(event => (event.target as Window).innerWidth)
+    tap(event => console.log('resize event', event)),
+    map(event => (event.target as Window).innerWidth),
+    tap(width => console.log('width', width))
   );
   readonly cWindowWidth = toSignal(this.windowWidth$, {initialValue: window.innerWidth});
 
@@ -56,6 +58,30 @@ export class MenuBarComponent {
 
   sFlyoutMenuOpen = signal(false);
 
+  complexObject = signal({a: true, b: 1, c: 'test'});
+
   constructor(readonly tabService: TabManagementService) {
+    this.sFlyoutMenuOpen.update(oldValue => {
+      const sideCalculations = 1 + 1;
+      return !oldValue;
+    });
+    this.sFlyoutMenuOpen.update(oldValue => !oldValue);
+    this.sFlyoutMenuOpen.mutate(oldValue => {
+      oldValue = true;
+    });
+
+
+    this.complexObject.set({a: true, b: 1, c: 'changed'});
+
+    this.complexObject.update(oldValue => {
+      oldValue.b = 3;
+      oldValue.c = 'changed';
+      return oldValue;
+    });
+
+    this.complexObject.mutate(oldValue => {
+      oldValue.b = 3;
+      oldValue.c = 'changed';
+    });
   }
 }
