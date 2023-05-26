@@ -1,4 +1,8 @@
-<div class="card" *ngIf="!!card">
+<div>
+  Mouse X: {{ (mousePosition$ | async)?.x }}
+  Mouse Y: {{ (mousePosition$ | async)?.y }}
+</div>
+<div class="card" *ngIf="!!card" #cardelement>
   <img src="assets/{{card}}.jpg" alt="Image {{card}}">
 </div>
 
@@ -6,7 +10,7 @@
 
   <div class="row">
 
-    <div class="col">
+    <div class="col" >
       <img *ngIf="deckService.cDeck()"
            (click)="card = deckService.drawCard()"
            src="/assets/cardback.jpg" alt="Image 1">
@@ -47,13 +51,13 @@
       <img src="assets/2.jpg" (click)="card = undefined" alt="Image 1">
     </div>
     <div class="col">
-      <img src="assets/3.png" (click)="card = undefined" alt="Image 1">
+      <img src="assets/3.jpg" (click)="card = undefined" alt="Image 1">
     </div>
     <div class="col">
       <img src="assets/2.jpg" (click)="card = undefined" alt="Image 1">
     </div>
     <div class="col">
-      <img src="assets/3.png" (click)="card = undefined" alt="Image 1">
+      <img src="assets/3.jpg" (click)="card = undefined" alt="Image 1">
     </div>
 
 
@@ -91,6 +95,7 @@
   {{width}}
 </div>
 
+
 <div *ngIf="windowWidth$ | async as width">
   <mat-form-field appearance="fill" *ngIf="width == 500">
     <mat-label>Select an option</mat-label>
@@ -115,7 +120,9 @@
         <mat-icon>help</mat-icon>
       </button>
 
-      <mat-option value="3">Option 3</mat-option>
+
     </mat-select>
   </mat-form-field>
+
+
 </div>
