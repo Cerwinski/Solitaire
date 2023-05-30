@@ -12,6 +12,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import { DeckManagementService } from './shared/services/deck-management.service';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
     FlexLayoutModule,
     MatInputModule,
     MatSelectModule,
-    MenuBarComponent
+    MenuBarComponent,
+    CommonModule
   ],
   providers: [DeckManagementService],
   bootstrap: [AppComponent]
