@@ -13,11 +13,17 @@ import {MatSelectModule} from "@angular/material/select";
 import { DeckManagementService } from './shared/services/deck-management.service';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import {CommonModule} from "@angular/common";
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatDividerModule} from "@angular/material/divider";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    KartenComponent
+    KartenComponent,
+    SidebarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,10 @@ import {CommonModule} from "@angular/common";
     MatInputModule,
     MatSelectModule,
     MenuBarComponent,
-    CommonModule
+    CommonModule,
+    MatSidenavModule,
+    MatDividerModule,
+
   ],
   providers: [DeckManagementService],
   bootstrap: [AppComponent]
